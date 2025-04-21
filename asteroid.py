@@ -15,10 +15,10 @@ class Asteroid(CircleShape):
     
     def split(self):
         self.kill()
-        if self.radius < ASTEROID_MIN_RADIUS:
+        if self.radius <= ASTEROID_MIN_RADIUS:
             return
         angle = random.uniform(20, 50)
-        shard1 = Asteroid(self.position.x, self.position.y, self.radius - ASTEROID_MIN_RADIUS)
-        shard1.velocity = self.velocity.rotate(angle) * 1.2
-        shard2 = Asteroid(self.position.x, self.position.y, self.radius - ASTEROID_MIN_RADIUS)
-        shard2.velocity = self.velocity.rotate(-angle) * 1.2
+        asteroid = Asteroid(self.position.x, self.position.y, self.radius - ASTEROID_MIN_RADIUS)
+        asteroid.velocity = self.velocity.rotate(angle) * 1.2
+        asteroid = Asteroid(self.position.x, self.position.y, self.radius - ASTEROID_MIN_RADIUS)
+        asteroid.velocity = self.velocity.rotate(-angle) * 1.2
